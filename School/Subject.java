@@ -1,4 +1,4 @@
-package School_유민석;
+package School;
 
 public class Subject {
   int stuNo;
@@ -13,10 +13,7 @@ public class Subject {
 
   @Override
   public String toString() {
-    String data = "[";
-    data += "%d, %s, %d".formatted(stuNo, subName, score);
-    data += "]";
-    return data;
+    return subName + " " + score + "점";
   }
 
   String saveToData() {

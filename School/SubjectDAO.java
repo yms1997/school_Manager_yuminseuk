@@ -1,4 +1,4 @@
-package School_유민석;
+package School;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -102,10 +102,10 @@ public class SubjectDAO {
   void getStuListByOneSubject(StudentDAO stuDAO) {
 
     String name = ut.getValue("찾을 과목 이름");
-    int cnt =0;
+    int cnt = 0;
     for(Subject sub : subList) {
       if(sub.subName.equals(name)) {
-        cnt+=1;
+        cnt += 1;
       }
     }
     if(cnt == 0) {
@@ -113,11 +113,10 @@ public class SubjectDAO {
       return;
     }
 
-    int[] stuList = new int[cnt];
-    int idx =0;
+    ArrayList<Integer> stuList = new ArrayList<Integer>(cnt);
     for(Subject sub : subList) {
       if(sub.subName.equals(name)) {
-        stuList[idx++] = sub.stuNo;
+        stuList.add(sub.stuNo);
       }
     }
 

@@ -1,4 +1,4 @@
-package School_유민석;
+package School;
 
 import java.util.ArrayList;
 
@@ -142,34 +142,39 @@ public class StudentDAO {
       }
     }
 
-    for(int i =0; i < cnt; i+=1) {
-      if(scores.get(i) > 0){
-        System.out.printf("%s 평균 %.2f점 %n" , temp.get(i) , scores.get(i));
-        System.out.println("--------------");
+    for(int i = 0; i < cnt; i+=1) {
+      System.out.println(temp.get(i));
+      if(scores.get(i) != 0){
+        System.out.println("평균 " + scores.get(i) + "점 ");
       }
+      System.out.println("--------------------------------");
     }
   }
 
-  void printStudentByOneSubject(int[] stuNoList) {
+  void printStudentByOneSubject(ArrayList<Integer> stulist) {
+    ArrayList<Student> temp = new ArrayList<Student>();
 
-    Student[] temp = new Student[stuNoList.length];
-
-    for(int i =0; i < temp.length;i+=1) {
-      temp[i] = getStudentByStuNo(stuNoList[i]);
-    }
-
-    for(int i =0; i < temp.length;i+=1) {
-      String name = temp[i].stuName;
-      for(int k =i; k < temp.length;k+=1) {
-        if(temp[k].stuName.compareTo(name) < 0) {
-          name = temp[k].stuName;
-          Student student = temp[k];
-          temp[k] = temp[i];
-          temp[i] = student;
+    for (int num : stulist) {
+      for (Student s : stuList) {
+        if(num == s.studentNo){
+          temp.add(s);
         }
       }
     }
-    for(Student s : temp) {
+
+    for (int i = 0; i < temp.size(); i++) {
+       String name = temp.get(i).stuName;
+      for (int j = i; j < temp.size(); j++) {
+         if(temp.get(j).stuName.compareTo(name) < 0){
+           name = temp.get(j).stuName;
+           Student temp1 = temp.get(i);
+           temp.set(i, temp.get(j));
+           temp.set(j, temp1);
+         }
+      }
+    }
+
+    for (Student s : temp) {
       System.out.println(s);
     }
   }

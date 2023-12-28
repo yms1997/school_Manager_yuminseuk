@@ -1,4 +1,4 @@
-package School_유민석;
+package School;
 
 public class Controller {
 

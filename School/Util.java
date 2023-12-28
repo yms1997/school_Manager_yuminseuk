@@ -1,4 +1,4 @@
-package School_유민석;
+package School;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Util {
   Scanner sc = new Scanner(System.in);
-  final String CUR_PATH = System.getProperty("user.dir") + "\\YMSworkspace\\level8\\src\\" + this.getClass().getPackageName() + "\\";
+  final String CUR_PATH = System.getProperty("user.dir") + "\\school_Manager_yuminseuk\\school_Manager_yuminseuk\\" + this.getClass().getPackageName() + "\\";
 
   int getValue(String msg, int start, int end) {
     while (true) {

@@ -1,4 +1,4 @@
-package School_유민석;
+package School;
 
 public class Student {
   int studentNo;
@@ -13,7 +13,11 @@ public class Student {
 
   @Override
   public String toString() {
-    return studentNo + "\t" +  stuName + "\t" + stuId;
+    String data = "[";
+    data += "학번" + "\t" + "학생이름" + "\t" + "학생아이디";
+    data += "]";
+    String data1 = data + "\n" + studentNo + "\t" + stuName + "\t" + stuId;
+    return data1;
   }
 
   String saveToData() {
